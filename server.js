@@ -63,6 +63,7 @@ server.delete("/api/users/:id", (req, res) => {
     if (user) {
         try {
             db.deleteUser(req.params.id)
+            res.status(200).json(user)
         } catch(error) {
             res.status(500).json({ errorMessage: "The user could not be removed" })}
     } else {
